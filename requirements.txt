@@ -1,0 +1,9 @@
+json
+pandas
+numpy==2.2.1
+matplotlib
+seaborn
+transformers==4.45.2
+rank_bm25
+sentence_transformers
+sklearn
