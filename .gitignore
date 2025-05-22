@@ -1,4 +1,14 @@
 logs/
 .env
-data/
+data/reports/
 output/
+imgs/
+matchmatrix/
+src/preprocess/pdf2json.py
+src/preprocess/__pycache__/
+gri_matches/
+analysis.ipynb
+gri_match.ipynb
+matching.ipynb
+evaluation.ipynb
+kg_construct.ipynb
