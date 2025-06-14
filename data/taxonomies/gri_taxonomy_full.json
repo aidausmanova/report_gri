@@ -3,7 +3,7 @@
         "idx": 0,
         "code": "GRI 2",
         "title": "General Disclosures",
-        "topics": ["Organization and its Reporting Practices", "Governance", "Strategy, Goals, Risks, Policies and Practices", "Stakeholder Engagement"],
+        "topics": ["organization reporting practices", "legal structure", "board composition", "oversight responsibilities", "code of ethics", "policy implementation", "sustainability strategy", "ESG risk management", "industry association membership"],
         "indicators": [
             {
                 "indicator": "GRI 2-1",
@@ -72,7 +72,7 @@
         "code": "GRI 201",
         "title": "Economic Performance",
         "sdgs": ["sdg_8", "sdg_9"],
-        "topics": ["Revenue", "Financial risks", "Climate change risks and opportunities"],
+        "topics": ["revenue", "financial risks", "climate risk assessment"],
         "indicators": [
             {
                 "indicator": "GRI 201-1",
@@ -91,7 +91,7 @@
         "code": "GRI 301",
         "title": "Materials",
         "sdgs": ["sdg_8", "sdg_12"],
-        "topics": ["Health and Safety", "Waste Management", "Recycled Materials"],
+        "topics": ["recycled materials", "circular economy"],
         "indicators": [
             {
                 "indicator": "GRI 301-1",
@@ -115,7 +115,7 @@
         "code": "GRI 302",
         "title": "Energy",
         "sdgs": ["sdg_7", "sdg_8", "sdg_12", "sdg_13"],
-        "topics": ["Energy Management", "Fuel Consumption"],
+        "topics": ["energy management", "fuel consumption", "grid electricity"],
         "indicators": [
             {
                 "indicator": "GRI 302-1",
@@ -149,7 +149,7 @@
         "code": "GRI 303",
         "title": "Water and Effluents",
         "sdgs": ["sdg_6"],
-        "topics": ["Natural Resource Use", "Water Management", "Water conservation", "Water reduction"],
+        "topics": ["natural resource use", "water withdrawal", "water conservation", "water recycling"],
         "indicators": [
             {
                 "indicator": "GRI 303-1",
@@ -183,7 +183,7 @@
         "code": "GRI 304",
         "title": "Biodiversity",
         "sdgs": ["sdg_6", "sdg_14", "sdg_15"],
-        "topics": ["Corporate Accountability", "Nature"],
+        "topics": ["corporate accountability", "wildlife"],
         "indicators": [
             {
                 "indicator": "GRI 304-1",
@@ -212,7 +212,7 @@
         "code": "GRI 305",
         "title": "Emissions",
         "sdgs": ["sdg_3", "sdg_12", "sdg_13", "sdg_15"],
-        "topics": ["Climate Change", "Pollution & Toxics"],
+        "topics": ["climate change", "pollution"],
         "indicators": [
             {
                 "indicator": "GRI 305-1",
@@ -246,7 +246,7 @@
         "code": "GRI 306",
         "title": "Effluents and Waste",
         "sdgs": ["sdg_3", "sdg_6", "sdg_12"],
-        "topics": ["Waste Management", "Recycled Materials", "Waste reduction", "Waste generation"],
+        "topics": ["waste management", "waste generation and reduction"],
         "indicators": [
             {
                 "indicator": "GRI 306-1",
@@ -270,7 +270,7 @@
         "code": "GRI 307",
         "title": "Environmental Compliance",
         "sdgs": ["sdg_16"],
-        "topics": ["Non-compliance", "Laws & Regulations", "Sanctions"],
+        "topics": ["environmental laws and regulations", "sanctions"],
         "indicators": [
             {
                 "indicator": "GRI 307-1",
@@ -289,7 +289,7 @@
         "code": "GRI 308",
         "title": "Supplier Environmental Assessment",
         "sdgs": ["sdg_9", "sdg_12"],
-        "topics": ["Governance", "Supply Chain Transparency"],
+        "topics": ["environmental due dilligence", "supply chain transparency"],
         "indicators": [
             {
                 "indicator": "GRI 308-1",
@@ -308,7 +308,7 @@
         "code": "GRI 401",
         "title": "Employment",
         "sdgs": ["sdg_8"],
-        "topics": ["Social"],
+        "topics": ["recruitment", "employee benefits"],
         "indicators": [
             {
                 "indicator": "GRI 401-1",
@@ -332,7 +332,7 @@
         "code": "GRI 403",
         "title": "Occupational Health and Safety",
         "sdgs": ["sdg_3", "sdg_8"],
-        "topics": ["Social", "Health and safety"],
+        "topics": ["safety training", "workplace injuries and safety"],
         "indicators": [
             {
                 "indicator": "GRI 403-1",
@@ -361,7 +361,7 @@
         "code": "GRI 404",
         "title": "Training and Education",
         "sdgs": ["sdg_5", "sdg_10"],
-        "topics": ["Training", "Education"],
+        "topics": ["workforce development", "professional growth", "employee training"],
         "indicators": [
             {
                 "indicator": "GRI 404-1",
@@ -380,7 +380,7 @@
         "code": "GRI 405",
         "title": "Diversity and Equal Opportunity",
         "sdgs": ["sdg_5", "sdg_10"],
-        "topics": ["Diversity and Inclusion", "Gender Equality"],
+        "topics": ["anti-discrimination", "gender equality", "workforce equity"],
         "indicators": [
             {
                 "indicator": "GRI 405-1",
@@ -395,11 +395,20 @@
         ]
     },
     { 
+        "idx": "gri_406",
+        "code": "GRI 406",
+        "title": "Non-Discrimination",
+        "sdgs": ["sdg_5", "sdg_10"],
+        "topics": ["anti-discrimination", "human rights"],
+        "details": "How the organization prevents and responds to discrimination based on race, gender, religion, disability, sexual orientation.",
+        "indicators": []
+    },
+    { 
         "idx": 14,
         "code": "GRI 413",
         "title": "Local Communities",
         "sdgs": ["sdg_17"],
-        "topics": ["Community Engagement"],
+        "topics": ["community engagement", "community impact assessment"],
         "indicators": [
             {
                 "indicator": "GRI 413-1",
@@ -413,12 +422,31 @@
             }
         ]
     },
-    {
+    { 
         "idx": 15,
+        "code": "GRI 415",
+        "title": "Public Policy",
+        "sdgs": ["sdg_16"],
+        "topics": ["lobbying", "advocacy", "political influence"],
+        "indicators": [
+            {
+                "indicator": "GRI 415-1",
+                "disclosure": "Operations with local community engagement",
+                "details": "Percentage of operations with implemented local community engagement, impact assessments, and/or development programs"
+            },
+            {
+                "indicator": "GRI 415-2",
+                "disclosure": "Operations with significant actual and potential negative impacts on local communities",
+                "details": ""
+            }
+        ]
+    },
+    {
+        "idx": 16,
         "code": "GRI 416",
         "title": "Customer Health and Safety",
         "sdgs": ["sdg_5", "sdg_10"],
-        "topics": ["Safety", "Customer"],
+        "topics": ["product safety", "safety certifications"],
         "indicators": [
             {
                 "indicator": "GRI 416-1",
@@ -433,11 +461,11 @@
         ]
     },
     {
-        "idx": 16,
+        "idx": 17,
         "code": "GRI 418",
         "title": "Customer Privacy",
-        "sdgs": [],
-        "topics": ["Privacy", "Security"],
+        "sdgs": ["sdg_16"],
+        "topics": ["data privacy", "cybersecurity", "personal information protection"],
         "indicators": [
             {
                 "indicator": "GRI 418-1",

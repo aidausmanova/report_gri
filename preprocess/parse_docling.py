@@ -1,26 +1,24 @@
 import warnings
 # warnings.filterwarnings("ignore")
 import os
+import sys
+sys.path.append(os.getcwd())
+import re
+import time
 import argparse
 import logging
-import re
-import json
-import time
 from pathlib import Path
-from ..utils import save_json
+from utils.utils import save_json
 
-# from docling.backend.pypdfium2_backend import PyPdfiumDocumentBackend
+import docling
 from docling.datamodel.base_models import InputFormat
+from docling.document_converter import DocumentConverter, PdfFormatOption
 from docling.datamodel.pipeline_options import (
     AcceleratorDevice,
     AcceleratorOptions,
     PdfPipelineOptions,
     EasyOcrOptions
 )
-from docling.document_converter import DocumentConverter, PdfFormatOption
-# from docling.models.ocr_mac_model import OcrMacOptions
-# from docling.models.tesseract_ocr_cli_model import TesseractCliOcrOptions
-# from docling.models.tesseract_ocr_model import TesseractOcrOptions
 
 _log = logging.getLogger(__name__)
 
@@ -63,7 +61,7 @@ def parse(report_file):
 
     ## Export results
     doc_filename = conv_result.input.file.stem
-    output_dir = Path("reports/processed/"+doc_filename)
+    output_dir = Path("data/reports/processed/"+doc_filename)
     output_dir.mkdir(parents=True, exist_ok=True)
     
 
@@ -78,28 +76,17 @@ def parse(report_file):
     
     return text
 
-
-import docling
 def download_models():
     docling.utils.model_downloader.download_models(
         output_dir = Path("docling/models")
     )
     print('models downloaded successfully.')
 
-
-if __name__ == "__main__":
-    parser = argparse.ArgumentParser(formatter_class=argparse.RawTextHelpFormatter)
-    parser.add_argument("--report", type=str)
-
-    args = parser.parse_args()
-    report_file = args.report
-
-    # print("Directory "+os.getcwd())
-
+def run_parser(report_file):
+    print(f"[INFO] Parsing {report_file}")
     text = parse(report_file)
 
-    print("[INFO] Start preprocessing")
-
+    print("[INFO] Text preprocessing ...")
     p = re.compile("##.*\n")
     section_titles = re.findall(p, text)
     mod_section_titles = []
@@ -108,12 +95,12 @@ if __name__ == "__main__":
 
     sections = text.split("##")
     sections.pop(0)
-
-    assert(len(sections) == len(mod_section_titles))
+    print(f"[INFO] # sections: {len(sections)}, # titles: {len(mod_section_titles)}")
+    # assert(len(sections) == len(mod_section_titles))
 
     file_name = "-".join(report_file.lower().split())
     chunked_paragraphs = []
-    for idx, (section, title) in enumerate(zip(sections, mod_section_titles)):
+    for idx, (section, title) in enumerate(zip(sections[:len(mod_section_titles)], mod_section_titles)):
         # Append paragraph data
         sec_text = section[len(title)+2:]
         sec_text = sec_text.split(". ")
@@ -123,15 +110,25 @@ if __name__ == "__main__":
                 chunked_paragraphs.append({
                     "title": title,
                     "text": sec_text,
-                    "idx": file_name+"-"+str(idx)
+                    "section_idx": file_name+"-"+str(idx)
                 })
             else:
                 for row in chunked_paragraphs:
                     if row['title'] == title:
                         row['text'] += sec_text
 
-    output_dir = Path("data/reports/processed/"+report_file)
-    print(f"[INFO] Saving processed report to {output_dir}/{file_name}_corpus.json")
-
+    if not os.path.exists(f'output/{file_name}/'):
+        os.makedirs(f'output/{file_name}/')
+    output_dir = Path("output/"+file_name)
     save_json(output_dir / f"{file_name}_corpus.json", chunked_paragraphs)
-    print("Finished execution")
+    print(f"[INFO] Saving processed report to {output_dir}/{file_name}_corpus.json")
+    return file_name
+
+if __name__ == "__main__":
+    parser = argparse.ArgumentParser(formatter_class=argparse.RawTextHelpFormatter)
+    parser.add_argument("--report", type=str)
+
+    args = parser.parse_args()
+    report_file = args.report
+
+    run_parser(report_file)

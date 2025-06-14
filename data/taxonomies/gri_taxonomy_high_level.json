@@ -27,7 +27,7 @@
         "idx": "gri_2-strategy",
         "code": "GRI 2",
         "title": "General Disclosures: Strategy, Risk, and Stakeholder Engagement",
-        "topics": ["sustainability strategy", "ESG risk management", "industry association membership."],
+        "topics": ["sustainability strategy", "ESG risk management", "industry association membership"],
         "details": "Organization's sustainability strategy, approach to managing environmental and social impacts, and interaction with stakeholders. Statements of strategic intent on sustainable development, mechanisms for addressing grievances, procedures for identifying and remediating negative impacts, and how the organization ensures legal and regulatory compliance.",
         "indicators": ["gri_2-22", "gri_2-25", "gri_2-26", "gri_2-27", "gri_2-28", "gri_2-29"]
     },
@@ -81,7 +81,7 @@
         "code": "GRI 305",
         "title": "Emissions",
         "sdgs": ["sdg_3", "sdg_12", "sdg_13", "sdg_15"],
-        "topics": ["Climate Change", "Pollution & Toxics"],
+        "topics": ["climate change", "pollution"],
         "details": "Greenhouse gas (GHG) emissions from an organization's operations. Direct emissions (Scope 1), indirect energy-related emissions (Scope 2), and value chain emissions (Scope 3). Report emission trends, reduction efforts, and intensity metrics.",
         "indicators": ["gri_305-1", "gri_305-2", "gri_305-3", "gri_305-4", "gri_305-5"]
     },

@@ -11,7 +11,7 @@ from tqdm import tqdm
 from sentence_transformers import SentenceTransformer, CrossEncoder
 from sklearn.metrics.pairwise import cosine_similarity
 
-from ..utils import get_gri_indicators, get_section_passages, get_80th_percentile_val
+from ..utils.utils import get_gri_disclosures, get_section_passages, get_80th_percentile_val
 
 reports_list = {
  'westpac-climate-2023': 'Westpac 2023 climate report',
@@ -154,7 +154,7 @@ if __name__ == '__main__':
         reranker_model = CrossEncoder("cross-encoder/ms-marco-MiniLM-L-6-v2") 
 
     # In this version we mapped with GRIs related to sustainability (gri_taxonomy_small), but may need to map with gri_taxonomy_full as well
-    gri_indicators = get_gri_indicators("data/taxonomies/gri_taxonomy_small.json")
+    gri_indicators = get_gri_disclosures("data/taxonomies/gri_taxonomy_small.json")
     gri_id_to_index = {}
     for i, (key, val) in enumerate(gri_indicators.items()):
         gri_id_to_index[key] = i

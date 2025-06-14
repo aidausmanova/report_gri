@@ -4,6 +4,7 @@ numpy==2.2.1
 nltk==3.9.1
 docling==2.22.0
 markdown==3.7
+spacy
 matplotlib
 seaborn
 transformers==4.45.2
